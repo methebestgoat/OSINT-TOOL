@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="OSINT Scope — transparent public-source investigation workspace." />
+  <title>OSINT Scope · Public-source intelligence</title>
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <a class="brand" href="/" aria-label="OSINT Scope home"><span class="brand-mark">⌖</span><span>OSINT<span class="brand-accent">SCOPE</span></span></a>
+      <div class="topbar-meta"><span class="status-dot"></span><span>PUBLIC SOURCES ONLY</span><span class="divider"></span><span id="clock">--:--:-- UTC</span></div>
+    </header>
+
+    <main class="workspace">
+      <aside class="rail">
+        <div class="eyebrow">INVESTIGATION DESK / 01</div>
+        <h1>Trace what’s public.<br /><em>Verify what matters.</em></h1>
+        <p class="lede">A focused workspace for authorized security research, journalism, and legitimate investigations.</p>
+        <div class="boundary-card"><span class="boundary-icon">⌁</span><div><strong>Hard boundary</strong><p>No private access. No shadow sources. No authentication bypass.</p></div></div>
+        <div class="rail-section"><div class="eyebrow">SUPPORTED SIGNALS</div><div class="signal-list"><span>01 / Username profiles</span><span>02 / Email associations</span><span>03 / Phone metadata</span></div></div>
+        <div class="rail-footer"><span>v1.0.0 / DEMO PROVIDERS</span><span>API keys stay server-side</span></div>
+      </aside>
+
+      <section class="canvas" aria-label="Investigation workspace">
+        <div class="canvas-header"><div><div class="eyebrow">QUERY CONSOLE</div><h2>Start with one identifier</h2></div><div class="query-id">CASE / <span id="caseId">UNASSIGNED</span></div></div>
+        <div class="search-panel">
+          <div class="mode-tabs" role="tablist" aria-label="Identifier type">
+            <button class="mode-tab active" data-type="username" role="tab" aria-selected="true"><span class="tab-index">01</span>Username</button>
+            <button class="mode-tab" data-type="email" role="tab" aria-selected="false"><span class="tab-index">02</span>Email</button>
+            <button class="mode-tab" data-type="phone" role="tab" aria-selected="false"><span class="tab-index">03</span>Phone</button>
+          </div>
+          <form id="searchForm" class="search-form">
+            <label for="queryInput" id="queryLabel">Public username</label>
+            <div class="input-row"><span class="input-prefix" id="inputPrefix">@</span><input id="queryInput" name="query" autocomplete="off" placeholder="e.g. analyst_handle" aria-describedby="queryHint" required /><button class="search-button" type="submit"><span>Run public-source search</span><span class="button-arrow">↗</span></button></div>
+            <div class="form-foot"><span id="queryHint">Letters, numbers, periods, underscores, and hyphens.</span><span class="key-hint">ENTER ↵</span></div>
+          </form>
+        </div>
+
+        <div class="notice"><span class="notice-symbol">i</span><p><strong>Scope note:</strong> Results are leads from public URLs and documented provider references. A match is not proof of identity. Review the original source before acting.</p></div>
+
+        <div class="results-toolbar"><div><div class="eyebrow">EVIDENCE BOARD</div><h3 id="resultsTitle">Awaiting a query</h3></div><div class="result-count" id="resultCount">0 SIGNALS</div></div>
+        <div id="results" class="results-grid"><div class="empty-state"><div class="empty-reticle">⌖</div><h3>No signals loaded</h3><p>Select an identifier type, enter a value, and run a public-source search to populate the evidence board.</p></div></div>
+        <div id="errorBox" class="error-box" hidden></div>
+      </section>
+    </main>
+    <footer class="footer"><span>OSINT SCOPE / AUTHORIZED USE ONLY</span><span>Every result carries provenance + confidence</span><a href="https://github.com/" target="_blank" rel="noreferrer">GitHub-ready architecture ↗</a></footer>
+  </div>
+  <script src="/app.js" type="module"></script>
+</body>
+</html>
